@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .odd {
+            background-color: blue;
+        }
+
+        .even {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="createTable()">Create Table</button>
+    <div id="tableContainer"></div>
+
+    <script>
+        function createTable() {
+            const container = document.getElementById("tableContainer");
+            const table = document.createElement("table");
+
+            // Create table headers
+            const thead = document.createElement("thead");
+            const headerRow = document.createElement("tr");
+            const th1 = document.createElement("th");
+            th1.textContent = "ID";
+            const th2 = document.createElement("th");
+            th2.textContent = "Name";
+            const th3 = document.createElement("th");
+            th3.textContent = "Roll";
+
+            headerRow.appendChild(th1);
+            headerRow.appendChild(th2);
+            headerRow.appendChild(th3);
+            thead.appendChild(headerRow);
+            table.appendChild(thead);
+
+            // Create table rows
+            const tbody = document.createElement("tbody");
+            const numRows = 10; // You can change the number of rows as per your requirement
+
+            for (let i = 1; i <= numRows; i++) {
+                const row = document.createElement("tr");
+                row.className = i % 2 === 1 ? "odd" : "even";
+
+                const idCell = document.createElement("td");
+                idCell.textContent = i;
+                const nameCell = document.createElement("td");
+                const nameInput = document.createElement("input");
+                nameInput.setAttribute("type", "text");
+                nameCell.appendChild(nameInput);
+                const rollCell = document.createElement("td");
+                const rollInput = document.createElement("input");
+                rollInput.setAttribute("type", "text");
+                rollCell.appendChild(rollInput);
+
+                row.appendChild(idCell);
+                row.appendChild(nameCell);
+                row.appendChild(rollCell);
+
+                tbody.appendChild(row);
+            }
+
+            table.appendChild(tbody);
+            container.innerHTML = "";
+            container.appendChild(table);
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table with Alternating Row Colors</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+        tr:nth-child(odd) {
+            background-color: blue;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="table-container">
+        <script>
+            // Function to create the table dynamically
+            function createTable() {
+                const  container = document.getElementById("table-container");
+                const table = document.createElement("table");
+
+                // Create table header
+                const thead = document.createElement("thead");
+                const headerRow = document.createElement("tr");
+                const headers = ["Name", "ID", "Roll"];
+                
+                headers.forEach(function(headerText) {
+                    var th = document.createElement("th");
+                    th.textContent = headerText;
+                    headerRow.appendChild(th);
+                });
+                thead.appendChild(headerRow);
+                table.appendChild(thead);
+
+                // Create table 
+                const tbody = document.createElement("tbody");
+                const  rowCount = 10; // You can change this to the number of rows you want
+                for (let  i = 1; i <= rowCount; i++) {
+                    const row = document.createElement("tr");
+                    const nameCell = document.createElement("td");
+                     const nameInput = document.createElement("input");
+                     nameInput.setAttribute("type", "text");
+                     nameCell.appendChild(nameInput);
+                    const idCell = document.createElement("td");
+                    idCell.textContent = i;
+                    const rollCell = document.createElement("td");
+                    const rollInput = document.createElement("input");
+                    rollInput.setAttribute("type", "text");
+                    rollCell.appendChild(rollInput);
+
+                    // nameCell.textContent = "Name " + i;
+                    // idCell.textContent = "ID " + i;
+                    // rollCell.textContent = i;
+
+                    row.appendChild(nameCell);
+                    row.appendChild(idCell);
+                    row.appendChild(rollCell);
+
+                    tbody.appendChild(row);
+                }
+                table.appendChild(tbody);
+
+                container.appendChild(table);
+            }
+
+            // Call the function to create the table
+            createTable();
+        </script>
+    </div>
+</body>
+</html>  -->
